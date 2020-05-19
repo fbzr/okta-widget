@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 
-class Staff extends Component {
+class Dashboard extends Component {
   state = {
     currentUserName: '',
     currentUserEmail: ''
   };
 
   componentDidMount() {
-    const idToken = JSON.parse(localStorage.getItem('okta-token-storage'));
+    const oktaToken = JSON.parse(localStorage.getItem('okta-token-storage'));
     this.setState({
-      currentUserEmail: idToken.idToken.claims.email,
-      currentUserName: idToken.idToken.claims.name
+      currentUserEmail: oktaToken.idToken.claims.email,
+      currentUserName: oktaToken.idToken.claims.name
     });
   }
 
@@ -27,4 +27,4 @@ class Staff extends Component {
   }
 }
 
-export default Staff;
+export default Dashboard;
